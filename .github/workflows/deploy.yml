@@ -1,5 +1,6 @@
-# GitHub Pages: deploy-pages API 404 회피 — dist를 gh-pages 브랜치에 푸시
-# 저장소 Settings → Pages → Source: Deploy from a branch → Branch: gh-pages / Folder: / (root)
+# dist → gh-pages 브랜치 푸시 (peaceiris)
+# 이 파일이 main에 머지되어야 push 시 실행됩니다. 머지 전엔 Actions → 이 워크플로 → Run workflow 로 수동 실행.
+# Pages: Settings → Source = Deploy from a branch → gh-pages / (root)
 name: Deploy to GitHub Pages
 
 on:
@@ -17,6 +18,8 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,9 +38,16 @@ jobs:
           VITE_KAKAO_JS_KEY: ${{ secrets.VITE_KAKAO_JS_KEY }}
         run: npm run build
 
+      - name: Verify dist
+        run: |
+          test -f dist/index.html
+          ls -la dist
+
       - name: Push dist to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          publish_branch: gh-pages
           force_orphan: true
+          enable_jekyll: false
