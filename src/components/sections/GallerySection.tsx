@@ -30,9 +30,6 @@ export function GallerySection({ data }: Props) {
   return (
     <FadeIn>
       <Section id="gallery" title="Gallery" variant="gallery">
-        <p className="muted gallery-strip__hint">
-          옆으로 스와이프해 보세요. 누르면 크게 볼 수 있어요.
-        </p>
         <div className="gallery-strip" role="list" aria-label="웨딩 갤러리">
           {items.map((item, globalIndex) => (
             <button

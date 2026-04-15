@@ -38,12 +38,17 @@ interface KakaoMapsRoot {
     ) => KakaoMap
     LatLng: new (lat: number, lng: number) => KakaoLatLng
     Marker: new (options: { position: KakaoLatLng }) => KakaoMarker
+    event: {
+      addListener: (target: KakaoMap, type: string, handler: () => void) => void
+    }
   }
 }
 
 type KakaoLatLng = object
 
-type KakaoMap = object
+interface KakaoMap {
+  relayout: () => void
+}
 
 type KakaoMarker = {
   setMap: (map: KakaoMap | null) => void

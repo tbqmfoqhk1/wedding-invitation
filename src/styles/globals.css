@@ -158,6 +158,28 @@ img {
   line-height: 1.65;
 }
 
+/* 지도 상단 주소: 한 줄(줄바꿈 없음), 넘치면 가로 스크롤 */
+.map-section__lead-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 auto var(--space-4);
+  max-width: 100%;
+  scrollbar-width: none;
+  text-align: center;
+}
+
+.map-section__lead-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.map-section__lead-scroll .map-section__lead-line {
+  display: inline-block;
+  margin: 0;
+  max-width: none;
+  white-space: nowrap;
+}
+
 .section-footnote {
   text-align: center;
   margin: var(--space-4) auto 0;
@@ -189,6 +211,12 @@ img {
 .fade-in--visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* 카카오맵: 부모 transform과 함께 쓰이면 타일/캔버스 높이가 깨짐 → 이 섹션만 이동 애니메이션 제거 */
+.fade-in--map.fade-in,
+.fade-in--map.fade-in--visible {
+  transform: none;
 }
 
 .btn {
@@ -332,6 +360,11 @@ a.icon-action {
 .map-icon-actions {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
 }
 
 .cover {
@@ -485,16 +518,6 @@ a.icon-action {
 .info-grid__value {
   font-family: var(--font-serif);
   font-size: 1.05rem;
-}
-
-.gallery-strip__hint {
-  text-align: center;
-  margin: 0 auto var(--space-4);
-  max-width: var(--content-max);
-  padding-left: var(--section-pad);
-  padding-right: var(--section-pad);
-  font-size: 0.8125rem;
-  line-height: 1.55;
 }
 
 /* 고정 높이 · 가변 너비 가로 스와이프 (여백 + 부드러운 스크롤) */
@@ -654,7 +677,12 @@ a.icon-action {
 }
 
 .map-box {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
   height: 220px;
+  min-height: 220px;
+  width: 100%;
   border-radius: var(--radius-md);
   overflow: hidden;
   border: none;

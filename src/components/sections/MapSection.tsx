@@ -2,13 +2,24 @@ import { useEffect, useRef, useState } from 'react'
 import { Section } from '../layout/Section'
 import { FadeIn } from '../ui/FadeIn'
 import type { WeddingContent } from '../../content/schema'
+import { copyToClipboard } from '../../lib/clipboard'
 import { loadKakaoMaps } from '../../lib/kakao/loadKakaoMaps'
 import { kakaoMapWebUrl } from '../../lib/kakao/mapLinks'
-import { IconMapPin } from '../icons/UiIcons'
+import { IconCopy, IconMapPin } from '../icons/UiIcons'
 
 type Props = {
   data: WeddingContent
   kakaoKey: string
+}
+
+/** 카카오맵은 부모의 CSS transform과 함께 쓰이면 타일 영역이 깨지는 경우가 있어 relayout을 여러 번 호출 */
+function scheduleMapRelayout(map: { relayout: () => void }) {
+  const run = () => map.relayout()
+  run()
+  requestAnimationFrame(run)
+  window.setTimeout(run, 0)
+  window.setTimeout(run, 100)
+  window.setTimeout(run, 700)
 }
 
 export function MapSection({ data, kakaoKey }: Props) {
@@ -20,6 +31,13 @@ export function MapSection({ data, kakaoKey }: Props) {
 
   const { venue } = data
   const mapWeb = kakaoMapWebUrl(venue.placeName, venue.lat, venue.lng)
+  const [copyMsg, setCopyMsg] = useState<string | null>(null)
+
+  async function copyAddressForDirections() {
+    const ok = await copyToClipboard(venue.address)
+    setCopyMsg(ok ? '주소를 복사했습니다.' : '복사에 실패했습니다.')
+    window.setTimeout(() => setCopyMsg(null), 2000)
+  }
 
   useEffect(() => {
     if (!kakaoKey) return
@@ -27,6 +45,8 @@ export function MapSection({ data, kakaoKey }: Props) {
     if (!el) return
 
     let cancelled = false
+    let map: { relayout: () => void } | null = null
+    const onResize = () => map?.relayout()
 
     loadKakaoMaps(kakaoKey)
       .then(() => {
@@ -34,12 +54,16 @@ export function MapSection({ data, kakaoKey }: Props) {
         setMapError(null)
         setShowLoadHelp(false)
         const center = new window.kakao.maps.LatLng(venue.lat, venue.lng)
-        const map = new window.kakao.maps.Map(mapEl.current, {
+        map = new window.kakao.maps.Map(mapEl.current, {
           center,
           level: 3,
         })
         const marker = new window.kakao.maps.Marker({ position: center })
         marker.setMap(map)
+
+        scheduleMapRelayout(map)
+        window.kakao.maps.event.addListener(map, 'idle', () => map?.relayout())
+        window.addEventListener('resize', onResize)
       })
       .catch(() => {
         setMapError('지도를 불러오지 못했습니다.')
@@ -48,18 +72,20 @@ export function MapSection({ data, kakaoKey }: Props) {
 
     return () => {
       cancelled = true
+      map = null
+      window.removeEventListener('resize', onResize)
       el.innerHTML = ''
     }
   }, [kakaoKey, venue.lat, venue.lng])
 
   return (
-    <FadeIn>
+    <FadeIn className="fade-in--map">
       <Section id="map" title="Directions">
-        <p className="muted section-lead">
-          {venue.placeName}
-          <br />
-          {venue.address}
-        </p>
+        <div className="map-section__lead-scroll">
+          <p className="muted section-lead map-section__lead-line">
+            {venue.placeLabel ?? venue.placeName}
+          </p>
+        </div>
         {mapError ? (
           <div className="map-box map-fallback">
             <p style={{ margin: 0 }}>{mapError}</p>
@@ -80,7 +106,12 @@ export function MapSection({ data, kakaoKey }: Props) {
             ) : null}
           </div>
         ) : (
-          <div ref={mapEl} className="map-box" role="presentation" />
+          <div
+            ref={mapEl}
+            className="map-box"
+            role="presentation"
+            style={{ height: 220, minHeight: 220, width: '100%' }}
+          />
         )}
         <div className="map-icon-actions section-actions">
           <a
@@ -92,7 +123,16 @@ export function MapSection({ data, kakaoKey }: Props) {
           >
             <IconMapPin className="icon-action__svg" />
           </a>
+          <button
+            type="button"
+            className="icon-action"
+            onClick={copyAddressForDirections}
+            aria-label="주소 복사"
+          >
+            <IconCopy className="icon-action__svg" />
+          </button>
         </div>
+        {copyMsg ? <p className="muted section-footnote">{copyMsg}</p> : null}
       </Section>
     </FadeIn>
   )
