@@ -1,0 +1,77 @@
+{
+  "couple": {
+    "groom": "박남준",
+    "bride": "박우심"
+  },
+  "ceremony": {
+    "dateLabel": "2026.08.15 (토)",
+    "timeLabel": "오후 12시 30분",
+    "venueName": "메리빌리아더프레스티지 컨벤션홀",
+    "hall": ""
+  },
+  "venue": {
+    "placeName": "메리빌리아더프레스티지 컨벤션홀",
+    "address": "경기 수원시 권선구 세화로 116 메리빌리아더프레스티지 웨딩홀",
+    "lat": 37.262765,
+    "lng": 126.99654
+  },
+  "video": {
+    "youtubeId": ""
+  },
+  "greeting": "광복절의 의미를 담아,\n소중한 분들을 초대합니다.\n\n서로 다른 길을 걸어온 두 사람이\n하나의 길을 함께 걷기로 했습니다.\n따뜻한 마음으로 축복해 주시면\n큰 기쁨이 되겠습니다.",
+  "gallery": [
+    { "src": "/gallery/DSC_4238.JPG", "alt": "갤러리 1" },
+    { "src": "/gallery/DSC_4342.JPG", "alt": "갤러리 2" },
+    { "src": "/gallery/DSC_4392.JPG", "alt": "갤러리 3" },
+    { "src": "/gallery/DSC_4531.JPG", "alt": "갤러리 4" },
+    { "src": "/gallery/DSC_4632.JPG", "alt": "갤러리 5" },
+    { "src": "/gallery/DSC_4658.JPG", "alt": "갤러리 6" },
+    { "src": "/gallery/DSC_4727.JPG", "alt": "갤러리 7" },
+    { "src": "/gallery/DSC_5085.JPG", "alt": "갤러리 8" },
+    { "src": "/gallery/DSC_5394.JPG", "alt": "갤러리 9" },
+    { "src": "/gallery/DSC_5627.JPG", "alt": "갤러리 10" },
+    { "src": "/gallery/DSC_6011.JPG", "alt": "갤러리 11" },
+    { "src": "/gallery/DSC_6057.jpg", "alt": "갤러리 12" },
+    { "src": "/gallery/DSC_6073.JPG", "alt": "갤러리 13" },
+    { "src": "/gallery/DSC_6203.JPG", "alt": "갤러리 14" },
+    { "src": "/gallery/DSC_6345.JPG", "alt": "갤러리 15" },
+    { "src": "/gallery/DSC_6456.JPG", "alt": "갤러리 16" },
+    { "src": "/gallery/DSC_6489.JPG", "alt": "갤러리 17" },
+    { "src": "/gallery/DSC_6735.JPG", "alt": "갤러리 18" },
+    { "src": "/gallery/DSC_6801.JPG", "alt": "갤러리 19" },
+    { "src": "/gallery/DSC_6927.JPG", "alt": "갤러리 20" },
+    { "src": "/gallery/DSC_7002.JPG", "alt": "갤러리 21" },
+    { "src": "/gallery/DSC_7003.JPG", "alt": "갤러리 22" },
+    { "src": "/gallery/DSC_7034.JPG", "alt": "갤러리 23" },
+    { "src": "/gallery/DSC_7091.JPG", "alt": "갤러리 24" },
+    { "src": "/gallery/DSC_7113.JPG", "alt": "갤러리 25" },
+    { "src": "/gallery/DSC_7145.JPG", "alt": "갤러리 26" },
+    { "src": "/gallery/DSC_7151.JPG", "alt": "갤러리 27" },
+    { "src": "/gallery/DSC_7197.JPG", "alt": "갤러리 28" },
+    { "src": "/gallery/DSC_7211.JPG", "alt": "갤러리 29" }
+  ],
+  "contacts": {
+    "groom": { "phone": "010-1234-5678" },
+    "bride": { "phone": "010-8765-4321" },
+    "groomParents": [
+      { "relation": "아버지", "name": "박민수", "phone": "010-1111-2222" },
+      { "relation": "어머니", "name": "김영희", "phone": "010-2222-3333" }
+    ],
+    "brideParents": [
+      { "relation": "아버지", "name": "한희승", "phone": "010-3333-4444" },
+      { "relation": "어머니", "name": "최수연", "phone": "010-4444-5555" }
+    ]
+  },
+  "accounts": [
+    { "holder": "김민수", "bank": "국민은행", "number": "123456-12-1234567" },
+    { "holder": "이서연", "bank": "신한은행", "number": "110-123-456789" }
+  ],
+  "share": {
+    "title": "Namjun & Woosim — Wedding",
+    "description": "Sat, Aug 15, 2026 · 12:30 PM · Merryvillia The Prestige Convention Hall",
+    "imagePath": "/og-image.png"
+  },
+  "cover": {
+    "imagePath": "/og-image.png"
+  }
+}
