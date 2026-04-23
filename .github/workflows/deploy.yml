@@ -1,6 +1,5 @@
-# dist → gh-pages 브랜치 푸시 (peaceiris)
-# 이 파일이 main에 머지되어야 push 시 실행됩니다. 머지 전엔 Actions → 이 워크플로 → Run workflow 로 수동 실행.
-# Pages: Settings → Source = Deploy from a branch → gh-pages / (root)
+# dist → gh-pages 브랜치 푸시 (JamesIves — peaceiris 대체, git safe.directory 등으로 푸시 실패 감소)
+# Pages: Settings → Build and deployment → Source = Deploy from a branch → Branch: gh-pages / (root)
 name: Deploy to GitHub Pages
 
 on:
@@ -11,9 +10,10 @@ on:
 permissions:
   contents: write
 
+# 연속 푸시 시 이전 잡이 취소되면 mid-push로 git exit 1이 날 수 있어, 배포는 끊지 않음
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: pages-deploy
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
@@ -43,11 +43,18 @@ jobs:
           test -f dist/index.html
           ls -la dist
 
+      # Jekyll 비활성(underscore 경로·정적 HTML) — peaceiris enable_jekyll: false와 동일
+      - name: Add .nojekyll
+        run: touch dist/.nojekyll
+
       - name: Push dist to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
+        uses: JamesIves/github-pages-deploy-action@v4.6.8
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
-          force_orphan: true
-          enable_jekyll: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: dist
+          clean: true
+          single-commit: true
+          git-config-name: github-actions[bot]
+          git-config-email: github-actions[bot]@users.noreply.github.com
+          commit-message: 'deploy: ${{ github.sha }}'
