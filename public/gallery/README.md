@@ -1,8 +1,7 @@
 # 갤러리 이미지
 
-`wedding.json`의 `gallery` 배열에 경로를 적습니다.
+`wedding.json`의 `gallery` 항목 `src`는 **`public/gallery/` 안의 실제 파일명**과 같아야 합니다. (대소문자까지 GitHub Pages에서 구분)
 
-- **지금은** 예시로 `picsum.photos` URL이 들어가 있어 바로 이미지가 보입니다.
-- **로컬 파일**을 쓰려면 `public/gallery/`에 넣고 예: `"src": "/gallery/01.jpg"` 처럼 바꾸면 됩니다. (파일명은 자유)
+예: `"src": "/gallery/1.JPG"`
 
-3행 레이아웃·가변 비율은 코드에서 처리됩니다.
+이미지를 바꾼 뒤에는 `wedding.json` 경로를 함께 수정하세요.

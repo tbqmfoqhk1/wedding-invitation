@@ -19,54 +19,62 @@
   "video": {
     "youtubeId": ""
   },
-  "greeting": "광복절의 의미를 담아,\n소중한 분들을 초대합니다.\n\n서로 다른 길을 걸어온 두 사람이\n하나의 길을 함께 걷기로 했습니다.\n따뜻한 마음으로 축복해 주시면\n큰 기쁨이 되겠습니다.",
+  "greeting": "광야를 지나 마주한 인연처럼,\n이제는 서로의 곁에서 같은 계절을 걸어가려 합니다.\n\n복된 인연으로 만나 사랑과 웃음을 나누며,\n서로에게 가장 다정한 가정이 되겠습니다.\n\n절기마다 계절이 바뀌어도 변함없는 마음으로 함께하며,\n감사 속에 오래도록 아름답게 살아가겠습니다.",
   "gallery": [
-    { "src": "/gallery/DSC_4238.JPG", "alt": "갤러리 1" },
-    { "src": "/gallery/DSC_4342.JPG", "alt": "갤러리 2" },
-    { "src": "/gallery/DSC_4392.JPG", "alt": "갤러리 3" },
-    { "src": "/gallery/DSC_4531.JPG", "alt": "갤러리 4" },
-    { "src": "/gallery/DSC_4632.JPG", "alt": "갤러리 5" },
-    { "src": "/gallery/DSC_4658.JPG", "alt": "갤러리 6" },
-    { "src": "/gallery/DSC_4727.JPG", "alt": "갤러리 7" },
-    { "src": "/gallery/DSC_5085.JPG", "alt": "갤러리 8" },
-    { "src": "/gallery/DSC_5394.JPG", "alt": "갤러리 9" },
-    { "src": "/gallery/DSC_5627.JPG", "alt": "갤러리 10" },
-    { "src": "/gallery/DSC_6011.JPG", "alt": "갤러리 11" },
-    { "src": "/gallery/DSC_6057.jpg", "alt": "갤러리 12" },
-    { "src": "/gallery/DSC_6073.JPG", "alt": "갤러리 13" },
-    { "src": "/gallery/DSC_6203.JPG", "alt": "갤러리 14" },
-    { "src": "/gallery/DSC_6345.JPG", "alt": "갤러리 15" },
-    { "src": "/gallery/DSC_6456.JPG", "alt": "갤러리 16" },
-    { "src": "/gallery/DSC_6489.JPG", "alt": "갤러리 17" },
-    { "src": "/gallery/DSC_6735.JPG", "alt": "갤러리 18" },
-    { "src": "/gallery/DSC_6801.JPG", "alt": "갤러리 19" },
-    { "src": "/gallery/DSC_6927.JPG", "alt": "갤러리 20" },
-    { "src": "/gallery/DSC_7002.JPG", "alt": "갤러리 21" },
-    { "src": "/gallery/DSC_7003.JPG", "alt": "갤러리 22" },
-    { "src": "/gallery/DSC_7034.JPG", "alt": "갤러리 23" },
-    { "src": "/gallery/DSC_7091.JPG", "alt": "갤러리 24" },
-    { "src": "/gallery/DSC_7113.JPG", "alt": "갤러리 25" },
-    { "src": "/gallery/DSC_7145.JPG", "alt": "갤러리 26" },
-    { "src": "/gallery/DSC_7151.JPG", "alt": "갤러리 27" },
-    { "src": "/gallery/DSC_7197.JPG", "alt": "갤러리 28" },
-    { "src": "/gallery/DSC_7211.JPG", "alt": "갤러리 29" }
+    { "src": "/gallery/1.JPG", "alt": "갤러리 1" },
+    { "src": "/gallery/2.JPG", "alt": "갤러리 2" },
+    { "src": "/gallery/3.JPG", "alt": "갤러리 3" },
+    { "src": "/gallery/4.JPG", "alt": "갤러리 4" },
+    { "src": "/gallery/5.JPG", "alt": "갤러리 5" },
+    { "src": "/gallery/6.JPG", "alt": "갤러리 6" },
+    { "src": "/gallery/7.JPG", "alt": "갤러리 7" },
+    { "src": "/gallery/8.JPG", "alt": "갤러리 8" },
+    { "src": "/gallery/8_1.JPG", "alt": "갤러리 9" },
+    { "src": "/gallery/9.jpg", "alt": "갤러리 10" },
+    { "src": "/gallery/10.JPG", "alt": "갤러리 11" },
+    { "src": "/gallery/11.JPG", "alt": "갤러리 12" },
+    { "src": "/gallery/12.JPG", "alt": "갤러리 13" },
+    { "src": "/gallery/13.JPG", "alt": "갤러리 14" },
+    { "src": "/gallery/14.JPG", "alt": "갤러리 15" },
+    { "src": "/gallery/15.JPG", "alt": "갤러리 16" },
+    { "src": "/gallery/16.jpg", "alt": "갤러리 17" },
+    { "src": "/gallery/17.JPG", "alt": "갤러리 18" },
+    { "src": "/gallery/18.JPG", "alt": "갤러리 19" },
+    { "src": "/gallery/19.JPG", "alt": "갤러리 20" },
+    { "src": "/gallery/20.JPG", "alt": "갤러리 21" },
+    { "src": "/gallery/21.JPG", "alt": "갤러리 22" },
+    { "src": "/gallery/22.JPG", "alt": "갤러리 23" },
+    { "src": "/gallery/23.jpg", "alt": "갤러리 24" },
+    { "src": "/gallery/24.JPG", "alt": "갤러리 25" },
+    { "src": "/gallery/25.JPG", "alt": "갤러리 26" },
+    { "src": "/gallery/26.JPG", "alt": "갤러리 27" }
   ],
   "contacts": {
-    "groom": { "phone": "010-1234-5678" },
-    "bride": { "phone": "010-8765-4321" },
+    "groom": { "phone": "010-4113-5057" },
+    "bride": { "phone": "010-4542-1885" },
     "groomParents": [
-      { "relation": "아버지", "name": "박민수", "phone": "010-1111-2222" },
-      { "relation": "어머니", "name": "김영희", "phone": "010-2222-3333" }
+      { "relation": "아버지", "name": "박기홍", "phone": "010-5474-5057" },
+      { "relation": "어머니", "name": "전영은", "phone": "010-4173-0951" }
     ],
     "brideParents": [
-      { "relation": "아버지", "name": "한희승", "phone": "010-3333-4444" },
-      { "relation": "어머니", "name": "최수연", "phone": "010-4444-5555" }
+      { "relation": "아버지", "name": "박금열", "phone": "010-3713-1885" },
+      { "relation": "어머니", "name": "구영미", "phone": "010-7202-1885" }
     ]
   },
-  "accounts": [
-    { "holder": "김민수", "bank": "국민은행", "number": "123456-12-1234567" },
-    { "holder": "이서연", "bank": "신한은행", "number": "110-123-456789" }
-  ],
+  "accounts": {
+    "couple": [
+      { "label": "신랑", "holder": "박남준", "bank": "카카오뱅크", "number": "3333215093258" },
+      { "label": "신부", "holder": "박우심", "bank": "카카오뱅크", "number": "3333132887004" }
+    ],
+    "groomParents": [
+      { "relation": "아버지", "holder": "박기홍", "bank": "기업은행", "number": "3333194698766" },
+      { "relation": "어머니", "holder": "전영은", "bank": "농협은행", "number": "1002150673696" }
+    ],
+    "brideParents": [
+      { "relation": "아버지", "holder": "박금열", "bank": "카카오뱅크", "number": "3333194698766" },
+      { "relation": "어머니", "holder": "구영미", "bank": "우리은행", "number": "1002150673696" }
+    ]
+  },
   "share": {
     "title": "Namjun & Woosim — Wedding",
     "description": "Sat, Aug 15, 2026 · 12:30 PM · Merryvillia The Prestige Convention Hall",
