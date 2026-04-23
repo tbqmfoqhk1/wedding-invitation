@@ -80,11 +80,19 @@ export function IconLink({ className = '' }: Props) {
   )
 }
 
+/** Share(카카오톡) — 24×24 정사각형 뷰박스에 맞춘 말풍선(찌그러짐 방지) */
 export function IconChatBubble({ className = '' }: Props) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden>
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+      preserveAspectRatio="xMidYMid meet"
+    >
       <path
-        d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7H8l-4 3v-3.4a8.5 8.5 0 01-1.5-8.9 8.38 8.38 0 013.8-3.8A8.5 8.5 0 0121 11.5z"
+        d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
         stroke="currentColor"
         strokeWidth="1.25"
         strokeLinecap="round"

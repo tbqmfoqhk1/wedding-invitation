@@ -7,7 +7,7 @@ import { GallerySection } from '../components/sections/GallerySection'
 import { VideoSection } from '../components/sections/VideoSection'
 import { MapSection } from '../components/sections/MapSection'
 import { AccountSection } from '../components/sections/AccountSection'
-import { GuestbookSection } from '../components/sections/GuestbookSection'
+// import { GuestbookSection } from '../components/sections/GuestbookSection'
 import { ShareSection } from '../components/sections/ShareSection'
 
 const kakaoKey = import.meta.env.VITE_KAKAO_JS_KEY ?? ''
@@ -24,7 +24,7 @@ export default function App() {
       <VideoSection data={data} />
       <MapSection data={data} kakaoKey={kakaoKey} />
       <AccountSection data={data} />
-      <GuestbookSection />
+      {/* <GuestbookSection /> */}
       <ShareSection data={data} kakaoKey={kakaoKey} />
       <footer className="wedding-footer muted">
         © {new Date().getFullYear()} {data.couple.groom} · {data.couple.bride}
