@@ -67,8 +67,8 @@
       { "label": "신부", "holder": "박우심", "bank": "카카오뱅크", "number": "3333132887004" }
     ],
     "groomParents": [
-      { "relation": "아버지", "holder": "박기홍", "bank": "기업은행", "number": "3333194698766" },
-      { "relation": "어머니", "holder": "전영은", "bank": "농협은행", "number": "1002150673696" }
+      { "relation": "아버지", "holder": "박기홍", "bank": "기업은행", "number": "01054745057" },
+      { "relation": "어머니", "holder": "전영은", "bank": "농협은행", "number": "51512162016" }
     ],
     "brideParents": [
       { "relation": "아버지", "holder": "박금열", "bank": "카카오뱅크", "number": "3333194698766" },
