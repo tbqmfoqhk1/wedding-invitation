@@ -8,14 +8,12 @@ type Props = {
 /** 표지: 카드 토큰과 동일한 배경·타이포 — 타 섹션과 시각적 통일 */
 export function CoverSection({ data }: Props) {
   const img = assetUrl(data.cover.imagePath)
-  const hero = data.invHero
   const cs = data.coverStyle
 
   return (
     <section className="cover tm-cover tm-cover--ref" aria-label="표지">
       <div className="tm-cover__shell">
         <div className="tm-cover__title-area">
-          {hero.kickerKo ? <p className="tm-cover__headline">{hero.kickerKo}</p> : null}
           <p className="tm-cover__begins">{cs.lineBegins}</p>
           <div className="tm-cover__subline">
             <span className="tm-cover__on">{cs.lineOn}</span>
