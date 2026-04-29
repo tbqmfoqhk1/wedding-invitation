@@ -41,21 +41,23 @@ export function SnapUploadSection({ data }: Props) {
             </div>
           </div>
 
-          <p className="inv-snap__lead">{s.leadKo}</p>
-          <div className="inv-snap__btn-wrap">
-            <button
-              type="button"
-              className="inv-snap__btn"
-              disabled={!enabled}
-              onClick={() => {
-                if (url && enabled) window.open(url, '_blank', 'noopener,noreferrer')
-              }}
-            >
-              {s.buttonLabel}
-            </button>
+          <div className="tm-snap-copy">
+            <p className="inv-snap__lead">{s.leadKo}</p>
+            <div className="inv-snap__btn-wrap">
+              <button
+                type="button"
+                className="inv-snap__btn"
+                disabled={!enabled}
+                onClick={() => {
+                  if (url && enabled) window.open(url, '_blank', 'noopener,noreferrer')
+                }}
+              >
+                {s.buttonLabel}
+              </button>
+            </div>
+            {!canOpen ? <p className="inv-snap__note">{s.closedNoteKo}</p> : null}
+            {canOpen && !url ? <p className="inv-snap__note">업로드 링크는 추후 안내 예정입니다.</p> : null}
           </div>
-          {!canOpen ? <p className="inv-snap__note">{s.closedNoteKo}</p> : null}
-          {canOpen && !url ? <p className="inv-snap__note">업로드 링크는 추후 안내 예정입니다.</p> : null}
         </div>
 
         <svg

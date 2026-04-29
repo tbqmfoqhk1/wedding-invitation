@@ -387,27 +387,33 @@
 
 /* Snap */
 .inv-snap__lead {
-  margin: 0 auto var(--space-4);
+  margin: 0;
   text-align: center;
+  font-family: var(--font-sans);
   font-size: var(--text-sm);
   color: var(--color-text-dim);
   line-height: var(--leading-body);
-  max-width: var(--content-max);
+  width: 100%;
 }
 
 .inv-snap__btn-wrap {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .inv-snap__btn {
   appearance: none;
-  border: 1px solid rgba(46, 43, 40, 0.14);
+  border: 1px solid var(--border-ui);
   border-radius: 999px;
-  padding: var(--space-4) var(--space-6);
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-sans);
   font-weight: 600;
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  letter-spacing: 0.01em;
   background: #fff;
+  color: var(--color-text);
   cursor: pointer;
 }
 
@@ -417,10 +423,12 @@
 }
 
 .inv-snap__note {
-  margin: var(--space-4) 0 0;
+  margin: 0;
   text-align: center;
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
+  line-height: var(--leading-body);
   color: var(--color-muted);
+  width: 100%;
 }
 
 /* Closing quote */

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { Section } from '../layout/Section'
 import { FadeIn } from '../ui/FadeIn'
 import type { WeddingContent } from '../../content/schema'
@@ -78,18 +78,67 @@ export function GallerySection({ data }: Props) {
   const visible = items.slice(0, sliceEnd)
   const columns = useMemo(() => partitionIntoColumns(visible, COLS), [visible])
 
+  const previewActive = showMore && !expanded
+  const gridRef = useRef<HTMLDivElement>(null)
+  const [previewClipPx, setPreviewClipPx] = useState<number | null>(null)
+
+  useLayoutEffect(() => {
+    if (!previewActive) {
+      setPreviewClipPx(null)
+      return
+    }
+
+    const root = gridRef.current
+    if (!root) return
+
+    const measure = () => {
+      const cols = root.querySelectorAll(':scope > .tm-gallery-col')
+      const heights: number[] = []
+      cols.forEach((node) => {
+        const h = (node as HTMLElement).offsetHeight
+        if (h > 0) heights.push(h)
+      })
+      if (heights.length === 0) return
+      setPreviewClipPx(Math.min(...heights))
+    }
+
+    measure()
+
+    const ro = new ResizeObserver(() => measure())
+    ro.observe(root)
+    root.querySelectorAll(':scope > .tm-gallery-col').forEach((c) => ro.observe(c))
+
+    const imgs = root.querySelectorAll('img')
+    imgs.forEach((img) => img.addEventListener('load', measure))
+
+    return () => {
+      ro.disconnect()
+      imgs.forEach((img) => img.removeEventListener('load', measure))
+    }
+  }, [previewActive, sliceEnd])
+
   return (
     <FadeIn>
       <Section id="gallery" title="GALLERY" variant="gallery">
         <div
           className={[
             'tm-gallery-wrap gallGridWrapper ratio multiple',
-            showMore && !expanded ? 'tm-gallery-wrap--fade' : '',
+            showMore && !expanded ? 'tm-gallery-wrap--preview' : '',
           ]
             .filter(Boolean)
             .join(' ')}
         >
-          <div className="tm-gallery-by-col" role="list" aria-label="웨딩 갤러리">
+          <div
+            ref={gridRef}
+            className={['tm-gallery-by-col', previewActive ? 'tm-gallery-by-col--preview' : ''].filter(Boolean).join(' ')}
+            role="list"
+            aria-label="웨딩 갤러리"
+            style={
+              previewActive && previewClipPx != null
+                ? { height: previewClipPx, overflow: 'hidden' }
+                : undefined
+            }
+          >
             {columns.map((colItems, colIdx) => (
               <div key={`col-${colIdx}`} className="tm-gallery-col">
                 {colItems.map((item, rowIdx) => {
