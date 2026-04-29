@@ -16,7 +16,7 @@ export function VideoSection({ data }: Props) {
 
   return (
     <FadeIn>
-      <Section id="video" title="동영상">
+      <Section id="video" title="VIDEO">
         <div className="video-wrap">
           <iframe
             title="청첩장 동영상"

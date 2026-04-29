@@ -73,7 +73,7 @@ export function ContactSection({ data }: Props) {
 
   return (
     <FadeIn>
-      <Section id="contact" title="Contact">
+      <Section id="contact" title="CONTACT">
         <div className="contact-board">
           <div className="contact-board__grid">
             <PersonCardCouple

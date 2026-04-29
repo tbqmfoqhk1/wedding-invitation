@@ -7,4 +7,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig(({ command, mode }) => ({
   base: command === 'serve' && mode === 'development' ? '/' : '/wedding-invitation/',
   plugins: [react()],
+  server: {
+    port: 5173,
+    strictPort: true,
+  },
 }))

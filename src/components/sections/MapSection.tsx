@@ -2,10 +2,13 @@ import { useEffect, useRef, useState } from 'react'
 import { Section } from '../layout/Section'
 import { FadeIn } from '../ui/FadeIn'
 import type { WeddingContent } from '../../content/schema'
-import { copyToClipboard } from '../../lib/clipboard'
 import { loadKakaoMaps } from '../../lib/kakao/loadKakaoMaps'
-import { kakaoMapWebUrl } from '../../lib/kakao/mapLinks'
-import { IconCopy, IconMapPin } from '../icons/UiIcons'
+import {
+  kakaoNaviOpenUrl,
+  naverMapSearchUrl,
+  NAV_APP_ICON_SRC,
+  tmapRouteWebUrl,
+} from '../../lib/kakao/mapLinks'
 
 type Props = {
   data: WeddingContent
@@ -30,14 +33,10 @@ export function MapSection({ data, kakaoKey }: Props) {
   const [showLoadHelp, setShowLoadHelp] = useState(false)
 
   const { venue } = data
-  const mapWeb = kakaoMapWebUrl(venue.placeName, venue.lat, venue.lng)
-  const [copyMsg, setCopyMsg] = useState<string | null>(null)
-
-  async function copyAddressForDirections() {
-    const ok = await copyToClipboard(venue.address)
-    setCopyMsg(ok ? '주소를 복사했습니다.' : '복사에 실패했습니다.')
-    window.setTimeout(() => setCopyMsg(null), 2000)
-  }
+  const naverUrl = naverMapSearchUrl(venue.placeName)
+  const kakaoNaviUrl = kakaoNaviOpenUrl(venue.lat, venue.lng, venue.placeName)
+  const tmapUrl = tmapRouteWebUrl(venue.lat, venue.lng, venue.placeName)
+  const sketch = venue.mapSketchUrl?.trim()
 
   useEffect(() => {
     if (!kakaoKey) return
@@ -80,12 +79,20 @@ export function MapSection({ data, kakaoKey }: Props) {
 
   return (
     <FadeIn className="fade-in--map">
-      <Section id="map" title="Directions">
-        <div className="map-section__lead-scroll">
-          <p className="muted section-lead map-section__lead-line">
-            {venue.placeLabel ?? venue.placeName}
-          </p>
+      <Section id="map" title="LOCATION">
+        <p className="tm-map-lead-ko">오시는 길</p>
+        <div className="tm-map-venue">
+          <p className="tm-map-venue__name">{venue.placeName}</p>
+          <p className="tm-map-venue__address muted">{venue.address}</p>
+          {venue.phone ? <p className="tm-map-venue__tel muted">Tel. {venue.phone}</p> : null}
         </div>
+        {sketch ? (
+          <div className="tm-map-sketch">
+            <a className="tm-map-sketch__btn" href={sketch} target="_blank" rel="noopener noreferrer">
+              약도 보기
+            </a>
+          </div>
+        ) : null}
         {mapError ? (
           <div className="map-box map-fallback">
             <p style={{ margin: 0 }}>{mapError}</p>
@@ -113,26 +120,23 @@ export function MapSection({ data, kakaoKey }: Props) {
             style={{ height: 220, minHeight: 220, width: '100%' }}
           />
         )}
-        <div className="map-icon-actions section-actions">
-          <a
-            className="icon-action"
-            href={mapWeb}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="카카오맵에서 보기"
-          >
-            <IconMapPin className="icon-action__svg" />
-          </a>
-          <button
-            type="button"
-            className="icon-action"
-            onClick={copyAddressForDirections}
-            aria-label="주소 복사"
-          >
-            <IconCopy className="icon-action__svg" />
-          </button>
+
+        <div className="tm-nav-apps-wrap">
+          <div className="tm-nav-apps" role="group" aria-label="길찾기 앱">
+            <a className="tm-nav-apps__btn" href={naverUrl} target="_blank" rel="noopener noreferrer">
+              <img src={NAV_APP_ICON_SRC.naver} alt="" width={22} height={22} decoding="async" />
+              <span>네이버지도</span>
+            </a>
+            <a className="tm-nav-apps__btn" href={tmapUrl} target="_blank" rel="noopener noreferrer">
+              <img src={NAV_APP_ICON_SRC.tmap} alt="" width={22} height={22} decoding="async" />
+              <span>티맵</span>
+            </a>
+            <a className="tm-nav-apps__btn" href={kakaoNaviUrl} target="_blank" rel="noopener noreferrer">
+              <img src={NAV_APP_ICON_SRC.kakaoNavi} alt="" width={22} height={22} decoding="async" />
+              <span>카카오내비</span>
+            </a>
+          </div>
         </div>
-        {copyMsg ? <p className="muted section-footnote">{copyMsg}</p> : null}
       </Section>
     </FadeIn>
   )

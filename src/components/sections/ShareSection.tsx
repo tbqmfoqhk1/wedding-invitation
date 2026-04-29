@@ -1,30 +1,25 @@
 import { useState } from 'react'
-import { Section } from '../layout/Section'
 import { FadeIn } from '../ui/FadeIn'
 import type { WeddingContent } from '../../content/schema'
 import { SITE_URL, absoluteUrl } from '../../lib/constants'
-import { copyToClipboard } from '../../lib/clipboard'
+import { assetUrl } from '../../lib/assetUrl'
 import { shareToKakao } from '../../lib/kakao/share'
-import { IconChatBubble, IconLink } from '../icons/UiIcons'
 
 type Props = {
   data: WeddingContent
   kakaoKey: string
 }
 
+const KAKAO_INVITE_ICON = assetUrl('/kakao-talk-invite.png')
+
 export function ShareSection({ data, kakaoKey }: Props) {
   const [status, setStatus] = useState<string | null>(null)
   const imageUrl = absoluteUrl(data.share.imagePath.replace(/^\//, ''))
 
-  async function onCopyLink() {
-    const ok = await copyToClipboard(SITE_URL)
-    setStatus(ok ? 'Link copied.' : 'Copy failed.')
-    window.setTimeout(() => setStatus(null), 2000)
-  }
-
   async function onKakaoShare() {
     if (!kakaoKey) {
-      setStatus('Set the Kakao app key.')
+      setStatus('카카오 앱 키가 필요합니다.')
+      window.setTimeout(() => setStatus(null), 2500)
       return
     }
     try {
@@ -36,35 +31,35 @@ export function ShareSection({ data, kakaoKey }: Props) {
         linkUrl: SITE_URL,
       })
     } catch {
-      setStatus('Could not open Kakao share.')
+      setStatus('카카오톡 공유를 열 수 없습니다.')
       window.setTimeout(() => setStatus(null), 2500)
     }
   }
 
   return (
     <FadeIn>
-      <Section id="share" title="Share">
-        <div className="share-icon-row" role="group" aria-label="Share actions">
-          <button
-            type="button"
-            className="icon-action"
-            disabled={!kakaoKey}
-            onClick={onKakaoShare}
-            aria-label="Share via KakaoTalk"
-          >
-            <IconChatBubble className="icon-action__svg" />
-          </button>
-          <button type="button" className="icon-action" onClick={onCopyLink} aria-label="Copy link">
-            <IconLink className="icon-action__svg" />
-          </button>
-        </div>
-        {status ? <p className="muted section-footnote">{status}</p> : null}
+      <div className="inv-share-kakao-block" id="share">
+        <button
+          type="button"
+          className="inv-share-kakao-row"
+          disabled={!kakaoKey}
+          onClick={onKakaoShare}
+        >
+          <img
+            className="inv-share-kakao-row__icon"
+            src={KAKAO_INVITE_ICON}
+            alt=""
+            decoding="async"
+          />
+          <span>카카오톡으로 초대장 보내기</span>
+        </button>
+        {status ? <p className="muted inv-share-kakao-status">{status}</p> : null}
         {!kakaoKey ? (
-          <p className="muted section-footnote">
-            For local dev, set <code>VITE_KAKAO_JS_KEY</code> in <code>.env</code>.
+          <p className="muted inv-share-kakao-hint">
+            로컬 개발 시 <code>.env</code>에 <code>VITE_KAKAO_JS_KEY</code>를 설정해 주세요.
           </p>
         ) : null}
-      </Section>
+      </div>
     </FadeIn>
   )
 }

@@ -4,6 +4,7 @@ import { SectionBanner } from './SectionBanner'
 type Props = {
   id: string
   title: string
+  subtitle?: string
   children: ReactNode
   variant?: 'default' | 'greeting' | 'guestbook' | 'gallery'
   banner?: boolean
@@ -12,6 +13,7 @@ type Props = {
 export function Section({
   id,
   title,
+  subtitle,
   children,
   variant = 'default',
   banner = true,
@@ -27,7 +29,7 @@ export function Section({
 
   return (
     <section id={id} className={className}>
-      {banner ? <SectionBanner title={title} /> : null}
+      {banner ? <SectionBanner title={title} subtitle={subtitle} /> : null}
       <div className="wedding-section__body">{children}</div>
     </section>
   )

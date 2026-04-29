@@ -1,16 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nanum+Myeongjo:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;600&family=Parisienne&family=Tangerine:wght@400;700&display=swap');
 
 :root {
-  /* 다크 미니멀: 배경 톤 통일 */
-  --color-bg-outer: #12151a;
-  --color-bg: #12151a;
-  --color-surface: #12151a;
-  --color-greeting: #12151a;
-  --color-border: rgba(255, 255, 255, 0.08);
-  /* 본문·보조: 약간의 톤 차로 위계만 구분 */
-  --color-text: #e9ecf1;
-  --color-muted: #97a2b0;
-  --color-text-dim: #b8c1ce;
+  /* 페이지 전체: 라이트 그레이 단일 톤 */
+  --color-bg-outer: #ececec;
+  --color-bg: #f7f7f7;
+  --color-surface: #f7f7f7;
+  --color-greeting: #f7f7f7;
+  --color-border: rgba(42, 40, 38, 0.08);
+  --color-text: #2a2826;
+  --color-muted: #6f6a66;
+  --color-text-dim: #5c5752;
   --color-accent-red: #c41e3a;
   --color-accent-blue: #003478;
   --font-serif: 'Nanum Myeongjo', serif;
@@ -20,7 +19,12 @@
   --font-cover-xl: 'Great Vibes', cursive;
   --radius-sm: 10px;
   --radius-md: 16px;
-  --shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.35);
+  /** 카드·이미지·썸네일 공통 (첨판·초상·갤러리·맵·영상 프레임) */
+  --radius-surface: var(--radius-sm);
+  /** UI 테두리 (회색 톤 페이지 전역 통일) */
+  --border-ui-soft: rgba(46, 43, 40, 0.08);
+  --border-ui: rgba(46, 43, 40, 0.12);
+  --shadow-soft: 0 12px 40px rgba(30, 25, 20, 0.06);
   --max-mobile: 430px;
   --section-pad: 1.5rem;
   --space-1: 0.25rem;
@@ -46,8 +50,8 @@
   /* 보조 문구(공유 안내·맵 힌트 등) */
   --text-muted-size: var(--text-sm);
   /* 아이콘 톤 (본문 대비 살짝 낮춤) */
-  --color-icon: rgba(205, 212, 222, 0.78);
-  --color-icon-hover: rgba(232, 236, 242, 0.95);
+  --color-icon: rgba(80, 76, 72, 0.65);
+  --color-icon-hover: rgba(42, 40, 38, 0.95);
 }
 
 *,
@@ -113,7 +117,7 @@ img {
   align-items: center;
   justify-content: center;
   gap: var(--space-4);
-  padding: var(--space-6) var(--section-pad) var(--space-5);
+  padding: var(--space-5) var(--section-pad) var(--space-4);
   background: transparent;
 }
 
@@ -121,7 +125,7 @@ img {
   flex: 1;
   max-width: 5rem;
   height: 1px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--border-ui);
 }
 
 .section-banner__title {
@@ -155,7 +159,7 @@ img {
 
 .wedding-section--greeting .wedding-section__body {
   padding-top: var(--space-5);
-  padding-bottom: var(--space-8);
+  padding-bottom: var(--space-7);
 }
 
 .wedding-section--guestbook .wedding-section__body {
@@ -579,7 +583,7 @@ a.icon-action {
   padding: 0;
   border: none;
   background: transparent;
-  border-radius: 12px;
+  border-radius: var(--radius-surface);
   overflow: hidden;
   cursor: pointer;
   line-height: 0;
@@ -588,7 +592,7 @@ a.icon-action {
 }
 
 .gallery-strip__item:focus-visible {
-  outline: 1px solid rgba(255, 255, 255, 0.25);
+  outline: 1px solid rgba(42, 40, 38, 0.35);
   outline-offset: 2px;
 }
 
@@ -699,8 +703,8 @@ a.icon-action {
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
-  border-radius: var(--radius-md);
-  border: none;
+  border-radius: var(--radius-surface);
+  border: 1px solid var(--border-ui-soft);
   background: #000;
 }
 
@@ -719,9 +723,9 @@ a.icon-action {
   height: 220px;
   min-height: 220px;
   width: 100%;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-surface);
   overflow: hidden;
-  border: none;
+  border: 1px solid var(--border-ui-soft);
   background: #0d0f12;
 }
 

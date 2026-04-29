@@ -7,36 +7,112 @@
     "dateLabel": "2026.08.15 (토)",
     "timeLabel": "오후 12시 30분",
     "venueName": "메리빌리아더프레스티지 컨벤션홀",
-    "hall": ""
+    "hall": "",
+    "isoDateTime": "2026-08-15T12:30:00+09:00",
+    "weekdayLabelKo": "토요일",
+    "calendarYear": 2026,
+    "calendarMonth": 8,
+    "calendarHighlightDay": 15
   },
   "venue": {
     "placeName": "메리빌리아더프레스티지 컨벤션홀",
-    "placeLabel": "경기 수원시 권선구 세화로 116 메리빌리아더프레스티지 컨벤션홀",
-    "address": "경기 수원시 권선구 세화로 116 메리빌리아더프레스티지 컨벤션홀",
+    "address": "경기 수원시 권선구 세화로 116",
+    "phone": "031-293-5579",
     "lat": 37.262765,
-    "lng": 126.99654
+    "lng": 126.99654,
+    "mapSketchUrl": ""
   },
   "video": {
     "youtubeId": ""
   },
+  "invHero": {
+    "monthBadgeEn": "AUG"
+  },
+  "coverStyle": {
+    "lineBegins": "BEGINS",
+    "lineOn": "ON",
+    "monthWord": "AUG",
+    "footerLines": [
+      "Love brought us here.",
+      "Join us as we make it \u2018Official\u2019."
+    ]
+  },
+  "invitation": {
+    "eyebrowEn": "INVITATION",
+    "leadKo": "소중한 분들을 초대합니다",
+    "portraitImagePath": "/3.JPG",
+    "contactPillLabel": "contact"
+  },
   "greeting": "광야를 지나 마주한 인연처럼,\n이제는 서로의 곁에서 같은 계절을 걸어가려 합니다.\n\n복된 인연으로 만나 사랑과 웃음을 나누며,\n서로에게 가장 다정한 가정이 되겠습니다.\n\n절기마다 계절이 바뀌어도 변함없는 마음으로 함께하며,\n감사 속에 오래도록 아름답게 살아가겠습니다.",
+  "parentsDisplay": {
+    "groomLine": "박기홍 · 전영은 의 아들 박남준",
+    "brideLine": "박금열 · 구영미 의 딸 박우심"
+  },
+  "venueInfo": {
+    "subway": [
+      { "dotKey": "line1", "text": "1호선 수원역 5,6번 출구" },
+      { "dotKey": "suinBundang", "text": "수인분당선 수원역 2,3번 출구" }
+    ],
+    "bus": [
+      {
+        "dotKey": "cityBus",
+        "label": "시내버스",
+        "routes": "13-1, 13-4, 13-5, 16, 16-1, 16-2, 22, 26, 30, 31, 32, 42, 51"
+      },
+      {
+        "dotKey": "expressBus",
+        "label": "직행버스",
+        "routes": "1007-1 (잠실), 7770 (사당), 3000 (강남), 909 (안산)"
+      },
+      {
+        "dotKey": "villageBus",
+        "label": "마을버스",
+        "routes": "6-1, 6-3, 27-2"
+      }
+    ],
+    "parking": {
+      "title": "예식장 주차",
+      "items": ["예식장 내 주차장 이용 가능, 2시간 무료"]
+    }
+  },
+  "snap": {
+    "leadKo": "신랑·신부의 행복한 순간을 담아 주세요. 예식 당일, 아래 버튼을 통해 사진을 올려 주세요.",
+    "uploadUrl": "",
+    "closedNoteKo": "2026-08-15 12:30부터 업로드 가능합니다.",
+    "buttonLabel": "사진 업로드",
+    "quoteBackgroundImagePath": "/gallery/25.JPG"
+  },
+  "footerQuote": {
+    "lines": [
+      "내가 당신을 사랑하는 것은 까닭이 없는 것이 아닙니다.",
+      "다른 사람들은 나의 홍안만을 사랑하지마는",
+      "당신은 나의 백발도 사랑하는 까닭입니다.",
+      "한용운 「사랑하는 까닭」"
+    ],
+    "attribution": ""
+  },
+  "galleryRow1": [
+    "/gallery/14.JPG",
+    "/gallery/7.JPG",
+    "/gallery/15.JPG"
+  ],
   "gallery": [
-    { "src": "/gallery/1.JPG", "alt": "갤러리 1" },
-    { "src": "/gallery/2.JPG", "alt": "갤러리 2" },
-    { "src": "/gallery/3.JPG", "alt": "갤러리 3" },
-    { "src": "/gallery/4.JPG", "alt": "갤러리 4" },
-    { "src": "/gallery/5.JPG", "alt": "갤러리 5" },
-    { "src": "/gallery/6.JPG", "alt": "갤러리 6" },
-    { "src": "/gallery/7.JPG", "alt": "갤러리 7" },
-    { "src": "/gallery/8.JPG", "alt": "갤러리 8" },
-    { "src": "/gallery/8_1.JPG", "alt": "갤러리 9" },
-    { "src": "/gallery/9.jpg", "alt": "갤러리 10" },
-    { "src": "/gallery/10.JPG", "alt": "갤러리 11" },
-    { "src": "/gallery/11.JPG", "alt": "갤러리 12" },
-    { "src": "/gallery/12.JPG", "alt": "갤러리 13" },
-    { "src": "/gallery/13.JPG", "alt": "갤러리 14" },
-    { "src": "/gallery/14.JPG", "alt": "갤러리 15" },
-    { "src": "/gallery/15.JPG", "alt": "갤러리 16" },
+    { "src": "/gallery/14.JPG", "alt": "갤러리 1" },
+    { "src": "/gallery/1.JPG", "alt": "갤러리 2" },
+    { "src": "/gallery/15.JPG", "alt": "갤러리 3" },
+    { "src": "/gallery/2.JPG", "alt": "갤러리 4" },
+    { "src": "/gallery/3.JPG", "alt": "갤러리 5" },
+    { "src": "/gallery/4.JPG", "alt": "갤러리 6" },
+    { "src": "/gallery/5.JPG", "alt": "갤러리 7" },
+    { "src": "/gallery/6.JPG", "alt": "갤러리 8" },
+    { "src": "/gallery/7.JPG", "alt": "갤러리 9" },
+    { "src": "/gallery/8.JPG", "alt": "갤러리 10" },
+    { "src": "/gallery/8_1.JPG", "alt": "갤러리 11" },
+    { "src": "/gallery/9.jpg", "alt": "갤러리 12" },
+    { "src": "/gallery/10.JPG", "alt": "갤러리 13" },
+    { "src": "/gallery/11.JPG", "alt": "갤러리 14" },
+    { "src": "/gallery/12.JPG", "alt": "갤러리 15" },
+    { "src": "/gallery/13.JPG", "alt": "갤러리 16" },
     { "src": "/gallery/16.jpg", "alt": "갤러리 17" },
     { "src": "/gallery/17.JPG", "alt": "갤러리 18" },
     { "src": "/gallery/18.JPG", "alt": "갤러리 19" },
@@ -62,6 +138,11 @@
     ]
   },
   "accounts": {
+    "introLines": [
+      "참석이 어려우신 분들을 위해 계좌번호를 안내해 드립니다.",
+      "넉넉히 주시는 축복은 소중히 삼아 행복하게 잘 살겠습니다.",
+      "마음만으로도 충분합니다."
+    ],
     "couple": [
       { "label": "신랑", "holder": "박남준", "bank": "카카오뱅크", "number": "3333215093258" },
       { "label": "신부", "holder": "박우심", "bank": "카카오뱅크", "number": "3333132887004" }
